@@ -8,32 +8,7 @@ server:
       application/javascript, application/json, application/xml  #default
 
 ######################### Spring #########################
-
 spring:
-  application:
-    attachment-size-limit: 26214400
-    temp-dir: ${TEMP_DIR_PATH:./attachments/temp}
-    storage-location: ${STORAGE_PATH:./uploadedFiles}
-    email-address: ${EMAIL_ADDRESS:our.wedding.story.pl@gmail.com}
-
-  servlet:
-    multipart:
-      enabled: true
-      max-file-size: 500MB
-      max-request-size: 510MB
-      file-size-threshold: 2KB
-
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    password: ${EMAIL_PASS}
-    username: ${EMAIL_ADDRES}
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
   cache:
     jcache:
       config: classpath:ehcache.xml

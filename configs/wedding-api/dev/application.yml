@@ -9,6 +9,20 @@ server:
 ######################### Spring #########################
 
 spring:
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 500MB
+      max-request-size: 510MB
+      file-size-threshold: 2KB
+
+  application:
+    attachment-size-limit: 26214400
+    temp-dir: ./attachments/temp
+    storage-location: ./uploadedFiles
+    email-address: our.wedding.story.pl@gmail.com
+
   datasource:
     url: ${MYSQL_DB_URL:jdbc:mysql://localhost:3306/weddings}
     password: ${MYSQL_DB_PASS:pass}
@@ -32,6 +46,17 @@ spring:
     open-in-view: false
     database-platform: org.hibernate.dialect.MySQL8Dialect
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    password: '{cipher}b38f03564abab7a730a8127cbace50abfed46fbca9ebc39e2245f629e0224313187789d761cbc50bd9ff6c319a4fca25'
+    username: '{cipher}6db914869056e1057bf6a6a0960ff33609331ab9c9e5c09eded44005fce44b95332aea93af57f066d03c29c67df4e897'
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 ######################### Actuator #########################
 

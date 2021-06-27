@@ -1,4 +1,3 @@
-
 ######################### Server #########################
 
 server:
@@ -13,6 +12,20 @@ server:
 ######################### Spring #########################
 
 spring:
+
+  application:
+    temp-dir: ${TEMP_DIR_PATH}
+    email-address: ${EMAIL_ADDRESS}
+    storage-location: ${STORAGE_PATH}
+    attachment-size-limit: ${EMAIL_SIZE_LIMIT}
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: ${MAX_UPLOAD_SZIE:500MB}
+      max-request-size: ${MAX_REQEST_SZIE:510MB}
+      file-size-threshold: 2KB
+
   datasource:
     url: ${POSTGRESQL_DB_URL}
     username: ${POSTGRESQL_DB_PASS}
@@ -30,6 +43,17 @@ spring:
     open-in-view: false
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    password: ${EMAIL_PASS}
+    username: ${EMAIL_ADDRES}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 ######################### Actuator #########################
 
@@ -47,4 +71,4 @@ logging:
 ######################## JSON Web Token #########################
 jwt:
   expirationTime: 36000000
-  secretKey: {$JWT_SECRET:240792###incradibly__Secret#$Api;;KEY;;fasdfsfasqQWECHES$#%$%#$^$^$%^#!@#!*^*^&(*\S??>}
+  secretKey: 240792###incradibly__Secret#$Api;;KEY;;fasdfsfasqQWECHES$#%$%#$^$^$%^#!@#!*^*^&(*\S??>
