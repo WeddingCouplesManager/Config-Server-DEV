@@ -1,0 +1,64 @@
+######################### Server #########################
+
+server:
+  port: ${SERVER_PORT:8080}
+
+######################### Zuul #########################
+
+zuul:
+  ignoredServices: '*'
+  sensitiveHeaders: Cookie, Set-Cookie
+  routes:
+
+    wedding-api:
+      path: /api/v1/**
+      serviceId: wedding-api
+      stripPrefix: false
+
+    auth:
+      path: /api/auth/**
+      serviceId: wedding-api
+      stripPrefix: false
+
+    web-admin:
+      path: /**
+      url: ${ADMIN_CLIENT_ULR:http://localhost:4200}
+
+######################### Ribbon #########################
+
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 3000
+
+wedding-api:
+  ribbon:
+    ReadTimeout: 240000
+    ConnectTimeout: 60000
+
+######################### Actuator #########################
+
+management:
+  server:
+    port: ${ACTUATOR_PORT:8081}
+  endpoints:
+    web:
+      base-path: ${ACTUATOR_BASE_PAHT:/manage}
+      exposure:
+        include: "health, info, filters, routes, service-registry, refresh"
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  app:
+    version: 1.0.0
+    name: Zuul Gateway
+    description: Gateway for Weeding Couples Manager App.
+
+
+######################### Logging #########################
+
+logging:
+  level:
+    com.sda: DEBUG
+    com.netflix.config.sources.URLConfigurationSource: ERROR

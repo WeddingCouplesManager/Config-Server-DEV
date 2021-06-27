@@ -1,0 +1,50 @@
+
+######################### Server #########################
+
+server:
+  ssl:
+    enabled: true
+    key-store-type: PKCS12
+    key-alias: ${KEY_STORE_ALIAS}
+    key-store: ${KEY_STORE_LOCATION:keystore.p12}
+    key-store-password: ${KEY_STORE_PASSWORD}
+  port: 443
+
+######################### Spring #########################
+
+spring:
+  datasource:
+    url: ${POSTGRESQL_DB_URL}
+    username: ${POSTGRESQL_DB_PASS}
+    password: ${POSTGRESQL_DB_USERNAME}
+    initialization-mode: never
+    schema: classpath:sql/schema-prod.sql
+    hikari:
+      maximum-pool-size: 30
+      connection-timeout: 20000
+      leak-detection-threshold: 30000
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+
+######################### Actuator #########################
+
+management:
+  endpoint:
+    health:
+      show-details: when_authorized
+
+######################### Logging #########################
+
+logging:
+  level:
+    com.simonjoz: WARN
+
+######################## JSON Web Token #########################
+jwt:
+  expirationTime: 36000000
+  secretKey: {$JWT_SECRET:240792###incradibly__Secret#$Api;;KEY;;fasdfsfasqQWECHES$#%$%#$^$^$%^#!@#!*^*^&(*\S??>}

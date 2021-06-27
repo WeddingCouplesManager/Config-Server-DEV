@@ -1,0 +1,53 @@
+
+######################### Server #########################
+
+server:
+  port: ${SERVER_PORT:8091}
+  tomcat:
+    max-swallow-size: -1 # not suitable for prod -> waste of resources to handle the extra bandwidth
+
+######################### Spring #########################
+
+spring:
+  datasource:
+    url: ${MYSQL_DB_URL:jdbc:mysql://localhost:3306/weddings}
+    password: ${MYSQL_DB_PASS:pass}
+    username: ${MYSQL_DB_USERNAME:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+    schema: classpath:sql/schema-dev.sql
+    data: classpath:sql/dev-initializer.sql
+    hikari:
+      maximum-pool-size: 30
+      connection-timeout: 20000
+      leak-detection-threshold: 25000
+  jpa:
+    # Uncomment for sql stats
+    #    properties:
+    #      hibernate:
+    #        generate_statistics: true
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    open-in-view: false
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+
+######################### Actuator #########################
+
+management:
+  endpoint:
+    health:
+      show-details: always
+
+######################### Logging #########################
+
+logging:
+  level:
+    com.simonjoz: DEBUG
+
+######################## JSON Web Token #########################
+
+jwt:
+  secretKey: sdfdskdsflsdfkjasfipqewouir231431324324dasd23asdasmcskjacloojfefcxcvbckvosfbuqwfvpeifw
+  expirationTime: 36000000

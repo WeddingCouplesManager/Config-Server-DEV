@@ -1,0 +1,69 @@
+######################### Server #########################
+
+server:
+  compression:
+    enabled: true
+    min-response-size: 2048  # default
+    mime-types: text/html, text/xml, text/plain, text/css, text/javascript,
+      application/javascript, application/json, application/xml  #default
+
+######################### Spring #########################
+
+spring:
+  application:
+    attachment-size-limit: 26214400
+    temp-dir: ${TEMP_DIR_PATH:./attachments/temp}
+    storage-location: ${STORAGE_PATH:./uploadedFiles}
+    email-address: ${EMAIL_ADDRESS:our.wedding.story.pl@gmail.com}
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 500MB
+      max-request-size: 510MB
+      file-size-threshold: 2KB
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    password: ${EMAIL_PASS}
+    username: ${EMAIL_ADDRES}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+
+######################### Actuator #########################
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: ${ACTUATOR_BASE_PAHT:/manage}
+
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  app:
+    version: 1.0.0
+    name: Weddings API
+    description: API for managing informations about wedding couples.
+
+######################### Gateway #########################
+
+gateway:
+  url: ${GATEWAY_URL:http://localhost:8080}
+
+######################### Logging #########################
+
+logging:
+  level:
+    com.netflix.config.sources.URLConfigurationSource: ERROR
