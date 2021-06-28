@@ -3,8 +3,6 @@
 
 server:
   port: ${SERVER_PORT:8091}
-  tomcat:
-    max-swallow-size: -1 # not suitable for prod -> waste of resources to handle the extra bandwidth
 
 ######################### Spring #########################
 
@@ -18,7 +16,7 @@ spring:
       file-size-threshold: 2KB
 
   application:
-    attachment-size-limit: 26214400
+    email-size-limit: 26214400
     temp-dir: ./attachments/temp
     storage-location: ./uploadedFiles
     email-address: our.wedding.story.pl@gmail.com
