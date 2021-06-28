@@ -16,7 +16,7 @@ spring:
       file-size-threshold: 2KB
 
   application:
-    email-size-limit: 26214400
+    email-size-limit: 46214400
     temp-dir: ./attachments/temp
     storage-location: ./uploadedFiles
     email-address: our.wedding.story.pl@gmail.com
