@@ -22,7 +22,7 @@ zuul:
 
     web-admin:
       path: /**
-      url: ${ADMIN_CLIENT_ULR:https://localhost:4200}
+      url: ${ADMIN_CLIENT_ULR:http://localhost:4200}
 
 ######################### Ribbon #########################
 
