@@ -15,14 +15,24 @@ zuul:
       serviceId: wedding-api
       stripPrefix: false
 
+    wedding-api-swagger:
+      path: /swagger-ui.html/**
+      serviceId: wedding-api
+      stripPrefix: false
+
+    api-actuator:
+      path: /manage/wedd-api/**
+      serviceId: wedding-api
+      stripPrefix: false
+
     auth:
       path: /api/auth/**
       serviceId: wedding-api
       stripPrefix: false
 
-    web-admin:
-      path: /**
-      url: ${ADMIN_CLIENT_ULR:http://localhost:4200}
+#    web-admin:
+#      path: /**
+#      url: ${ADMIN_CLIENT_ULR:http://localhost:4200}
 
 ######################### Ribbon #########################
 
@@ -38,11 +48,9 @@ wedding-api:
 ######################### Actuator #########################
 
 management:
-  server:
-    port: ${ACTUATOR_PORT:8081}
   endpoints:
     web:
-      base-path: ${ACTUATOR_BASE_PAHT:/manage}
+      base-path: /manage/wedd-api
       exposure:
         include: "health, info, filters, routes, refresh, prometheus"
   endpoint:
