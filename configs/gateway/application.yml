@@ -15,16 +15,6 @@ zuul:
       serviceId: wedding-api
       stripPrefix: false
 
-    wedding-api-swagger:
-      path: /swagger-ui.html/**
-      serviceId: wedding-api
-      stripPrefix: false
-
-    api-actuator:
-      path: /manage/wedd-api/**
-      serviceId: wedding-api
-      stripPrefix: false
-
     auth:
       path: /api/auth/**
       serviceId: wedding-api
