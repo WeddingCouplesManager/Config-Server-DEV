@@ -20,7 +20,7 @@ management:
     web:
       exposure:
         include: "health, info, prometheus, refresh, httptrace"
-      base-path: ${ACTUATOR_BASE_PAHT:/manage}
+      base-path: /manage/wedd-api
 
   endpoint:
     health:

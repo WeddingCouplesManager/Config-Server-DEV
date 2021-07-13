@@ -50,7 +50,7 @@ wedding-api:
 management:
   endpoints:
     web:
-      base-path: /manage/wedd-api
+      base-path: /manage
       exposure:
         include: "health, info, filters, routes, refresh, prometheus"
   endpoint:
