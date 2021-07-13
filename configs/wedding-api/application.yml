@@ -19,7 +19,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: "health, info, prometheus, refresh, httptrace"
       base-path: ${ACTUATOR_BASE_PAHT:/manage}
 
   endpoint:
