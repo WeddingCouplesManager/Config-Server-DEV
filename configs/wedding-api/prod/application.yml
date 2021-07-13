@@ -1,13 +1,7 @@
 ######################### Server #########################
 
 server:
-  ssl:
-    enabled: true
-    key-store-type: PKCS12
-    key-alias: ${KEY_STORE_ALIAS}
-    key-store: ${KEY_STORE_LOCATION:keystore.p12}
-    key-store-password: ${KEY_STORE_PASSWORD}
-  port: 443
+  port: ${SERVER_PORT:8091}
 
 ######################### Spring #########################
 
@@ -66,9 +60,9 @@ management:
 
 logging:
   level:
-    com.simonjoz: WARN
+    com.simonjoz: ${LOG_LEVEL:DEBUG}
 
 ######################## JSON Web Token #########################
 jwt:
-  expirationTime: 36000000
-  secretKey: 240792###incradibly__Secret#$Api;;KEY;;fasdfsfasqQWECHES$#%$%#$^$^$%^#!@#!*^*^&(*\S??>
+  expirationTime: ${JWT_EXP_TIME:36000000}
+  secretKey: ${JWT_SECRET:240792###incradibly__Secret#$Api;;KEY;;fasdfsfasqQWECHES$#%$%#$^$^$%^#!@#!*^*^&(*\S??>}
