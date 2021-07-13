@@ -17,7 +17,7 @@ spring:
   application:
     email-size-limit: 26214400
     temp-dir: ./attachments/temp
-    storage-location: ./uploadedFiles
+    storage-location: ${STORAGE_PATH:./uploadedFiles}
     email-address: our.wedding.story.pl@gmail.com
 
   datasource:

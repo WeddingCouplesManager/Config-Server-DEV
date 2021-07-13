@@ -20,9 +20,13 @@ zuul:
       serviceId: wedding-api
       stripPrefix: false
 
-#    web-admin:
-#      path: /**
-#      url: ${ADMIN_CLIENT_ULR:http://localhost:4200}
+    grafana:
+      path: /grafana
+      url: ${GRAFANA_URL}
+
+    prometheus:
+      path: /prometheus
+      url: ${PROMETHEUS_URL}
 
 ######################### Ribbon #########################
 
