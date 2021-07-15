@@ -28,7 +28,7 @@ zuul:
       path: /prometheus
       url: ${PROMETHEUS_URL}
 
-#    frontend:
+#    web-admin:
 #      path: /**
 #      url: ${ADMIN_CLIENT_URL:http://localhost:4200}
 
