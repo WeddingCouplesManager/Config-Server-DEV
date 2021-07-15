@@ -17,7 +17,7 @@ zuul:
 
     auth:
       path: /api/auth/**
-      serviceId: wedding-api
+      serviceId: wedd-api
       stripPrefix: false
 
     grafana:
