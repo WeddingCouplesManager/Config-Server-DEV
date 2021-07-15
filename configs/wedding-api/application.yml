@@ -31,14 +31,3 @@ info:
     version: 1.0.0
     name: Weddings API
     description: API for managing informations about wedding couples.
-
-######################### Gateway #########################
-
-gateway:
-  url: ${GATEWAY_URL:http://localhost:8080}
-
-######################### Logging #########################
-
-logging:
-  level:
-    com.netflix.config.sources.URLConfigurationSource: ERROR

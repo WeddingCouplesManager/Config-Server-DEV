@@ -18,6 +18,7 @@ spring:
     email-size-limit: 26214400
     temp-dir: ./attachments/temp
     storage-location: ${STORAGE_PATH:./uploadedFiles}
+    download-url: ${DOWNLOAD_URL:http://localhost:8080}
     email-address: our.wedding.story.pl@gmail.com
 
   datasource:
@@ -67,6 +68,7 @@ management:
 logging:
   level:
     com.simonjoz: DEBUG
+    com.netflix.config.sources.URLConfigurationSource: ERROR
 
 ######################## JSON Web Token #########################
 

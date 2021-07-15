@@ -10,9 +10,9 @@ zuul:
   sensitiveHeaders: Cookie, Set-Cookie
   routes:
 
-    wedding-api:
+    wedd-api:
       path: /api/v1/**
-      serviceId: wedding-api
+      serviceId: wedd-api
       stripPrefix: false
 
     auth:
@@ -27,6 +27,11 @@ zuul:
     prometheus:
       path: /prometheus
       url: ${PROMETHEUS_URL}
+
+#    frontend:
+#      path: /**
+#      url: ${ADMIN_CLIENT_URL:http://localhost:4200}
+
 
 ######################### Ribbon #########################
 
