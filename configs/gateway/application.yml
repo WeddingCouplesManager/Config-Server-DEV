@@ -20,14 +20,10 @@ zuul:
       serviceId: wedd-api
       stripPrefix: false
 
-    actuator:
-      path: /manage/**
-      serviceId: gateway
-      stripPrefix: false
-
     web-admin:
-      path: /**
+      path: admin/**
       url: ${ADMIN_CLIENT_URL:http://localhost:4200}
+      stripPrefix: true
 
 
 ######################### Ribbon #########################
