@@ -20,17 +20,9 @@ zuul:
       serviceId: wedd-api
       stripPrefix: false
 
-    grafana:
-      path: /grafana
-      url: ${GRAFANA_URL}
-
-    prometheus:
-      path: /prometheus
-      url: ${PROMETHEUS_URL}
-
-#    web-admin:
-#      path: /**
-#      url: ${ADMIN_CLIENT_URL:http://localhost:4200}
+    web-admin:
+      path: /**
+      url: ${ADMIN_CLIENT_URL:http://localhost:4200}
 
 
 ######################### Ribbon #########################
