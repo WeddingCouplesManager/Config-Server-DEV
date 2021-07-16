@@ -20,6 +20,10 @@ zuul:
       serviceId: wedd-api
       stripPrefix: false
 
+    web-admin:
+      path: /**
+      url: ${ADMIN_CLIENT_URL:http://localhost:4200}
+
 
 ######################### Ribbon #########################
 
